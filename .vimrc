@@ -1,13 +1,4 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2016 Mar 25
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" Zeke's vimrc
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -26,7 +17,7 @@ filetype off            " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -44,7 +35,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'altercation/vim-colors-solarized'
 
 " gruvbox
-Plugin 'morhetz/gruvbox'
+"Plugin 'morhetz/gruvbox'
 
 " Linux Kernel Style
 Plugin 'vivien/vim-linux-coding-style'
@@ -56,29 +47,12 @@ Plugin 'vim-airline/vim-airline-themes'
 "cscope-maps
 Plugin 'gnattishness/cscope_maps'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end. 
-" plugin on Github repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosten on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file://home/gmarik/path/to/plugin
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtime properly
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a 
-" different version somewhere else
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
 " All of your plugins must be added before the following line
 call vundle#end()               " required
 filetype plugin indent on       " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
-" 
+"
 " Brief help
 " :PluginList           - lists configured plugins
 " :PluginInstall        - installs plugins; append '!' to update or just
@@ -90,32 +64,19 @@ filetype plugin indent on       " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non plugin stuff after this line
 " ********************** stuff for Vundle
-"
+
 " separate installation stuff for ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-" for the one colorscheme to rule them all
-"colorscheme ChocolateLiquor
-
-" for solarized
-"syntax enable
-"set background=dark
-"set background=light
-"colorscheme solarized
-
-" gruvbox
-"colorscheme gruvbox
-"set background=dark
-"set background=light
-"
 " set one for vim, one for gvim
 if has('gui_running')
         syntax enable
-        "set background=light
+"        set background=light
         set background=dark
         colorscheme solarized
-        "colorscheme gruvbox
+"        colorscheme gruvbox
         set guioptions=aci
+        set guioptions-=L
 else
         colorscheme BlackSea
 endif
@@ -163,7 +124,7 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+ " filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -235,27 +196,6 @@ autocmd FileType help setlocal nospell
 "ignore case while searching
 set ignorecase
 
-" LINUX KERNEL CODING STYLE
-" 80 characters line
-set colorcolumn=81
-" execute "set colorcolumn=" . join(range(81,335), ',')
-highlight ColorColumn ctermbg=Black ctermfg=DarkRed
-
-" Highlight Trailing Spaces
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-" LINUX KERNEL CODING STYLE
-
-" FOLDING
-set foldmethod=syntax
-"set foldlevel=1
-set foldclose=all
 " ************************************************************************ ZEKE SETTINGS
 
 
